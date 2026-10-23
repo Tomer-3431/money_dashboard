@@ -21,6 +21,13 @@ class GoalGauge extends StatelessWidget {
     return (balance / g.amount).clamp(0.0, 1.0).toDouble();
   }
 
+  Color _getProgressColor(double value, AppColors c) {
+    if (value == 1) return c.success;
+    if (value <= 0.3) return c.error;
+    if (value <= 0.5) return c.warning;
+    return c.primary;
+  }
+
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -72,7 +79,7 @@ class GoalGauge extends StatelessWidget {
                                 painter: _GaugePainter(
                                   progress: value,
                                   trackColor: c.border,
-                                  progressColor: done ? c.success : c.primary,
+                                  progressColor: _getProgressColor(value, c),
                                   strokeWidth: stroke,
                                 ),
                               ),
