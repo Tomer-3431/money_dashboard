@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:money_dashboard/design/theme_constants.dart';
+import 'package:money_dashboard/goals/goals_container.dart';
 import 'package:money_dashboard/home/mock_data.dart';
 import 'package:money_dashboard/home/widgets/balance_card.dart';
 import 'package:money_dashboard/home/widgets/entry_form.dart';
@@ -19,9 +20,23 @@ class HomeContainerState extends State<HomeContainer> {
   /// Fixed width of the forms column in the wide layout.
   static const double _formsWidth = 440;
 
+  void _openGoals() => Navigator.of(context).push(
+        MaterialPageRoute<void>(builder: (_) => const GoalsContainer()),
+      );
+
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('Money Dashboard')),
+        appBar: AppBar(
+          title: const Text('Money Dashboard'),
+          actions: [
+            IconButton(
+              tooltip: 'Goals',
+              icon: const Icon(Icons.flag_outlined),
+              onPressed: _openGoals,
+            ),
+            const SizedBox(width: AppSpacing.sm),
+          ],
+        ),
         body: SafeArea(
           child: LayoutBuilder(
             builder: (context, constraints) =>
