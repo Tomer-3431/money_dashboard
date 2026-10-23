@@ -27,7 +27,7 @@ class HomeContainerState extends State<HomeContainer> {
         appBar: AppBar(
           title: const Text('Money Dashboard'),
         ),
-        drawer: Sidebar(),
+        drawer: Sidebar(activeTabId: 'home',),
         body: SafeArea(
           child: LayoutBuilder(
             builder: (context, constraints) =>

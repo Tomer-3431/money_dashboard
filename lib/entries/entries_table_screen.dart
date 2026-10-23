@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:money_dashboard/design/formatters.dart';
 import 'package:money_dashboard/design/theme_constants.dart';
 import 'package:money_dashboard/entries/widgets/entry_quick_form.dart';
+import 'package:money_dashboard/home/mock_data.dart';
 import 'package:money_dashboard/home/widgets/transaction_details_dialog.dart';
 import 'package:money_dashboard/home/widgets/type_dot.dart';
 import 'package:money_dashboard/model/entry_type.dart';
@@ -17,15 +18,15 @@ enum _SortColumn { name, description, location, date, amount }
 /// [isIncome] decides which one. [entries] may contain both kinds; only the
 /// matching ones are shown. Navigate to it however you like, e.g.:
 ///   EntriesTableScreen(isIncome: true, entries: kMockEntries)
+final List<LedgerEntry> entries = kMockEntries;
+
 class EntriesTableScreen extends StatefulWidget {
   const EntriesTableScreen({
     super.key,
     required this.isIncome,
-    required this.entries,
   });
 
   final bool isIncome;
-  final List<LedgerEntry> entries;
 
   @override
   State<EntriesTableScreen> createState() => _EntriesTableScreenState();
@@ -35,7 +36,7 @@ class _EntriesTableScreenState extends State<EntriesTableScreen> {
   /// Below this width the table scrolls horizontally instead of squeezing.
   static const double _minTableWidth = 900;
 
-  late final List<LedgerEntry> _all = widget.entries
+  late final List<LedgerEntry> _all = entries
       .where((e) => e.isIncome == widget.isIncome)
       .toList();
 
@@ -147,7 +148,7 @@ class _EntriesTableScreenState extends State<EntriesTableScreen> {
 
     return Scaffold(
       appBar: AppBar(title: Text(widget.isIncome ? 'Income' : 'Spend')),
-      drawer: Sidebar(),
+      drawer: Sidebar(activeTabId: widget.isIncome ? 'income' : 'debt',),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {

@@ -88,7 +88,7 @@ class GoalsContainerState extends State<GoalsContainer> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Money Dashboard')),
-      drawer: Sidebar(),
+      drawer: Sidebar(activeTabId: 'goals',),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
