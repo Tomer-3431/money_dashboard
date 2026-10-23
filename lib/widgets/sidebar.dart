@@ -23,7 +23,7 @@ const _sidebarItems = [
   SidebarItem(id: 'home', label: 'Main Dashboard', icon: Icons.home_outlined, destination: HomeContainer()),
   SidebarItem(id: 'goals', label: 'Goals', icon: Icons.flag_outlined, destination: GoalsContainer()),
   SidebarItem(id: 'income', label: 'Incomes', icon: Icons.trending_up_outlined, destination: EntriesTableScreen(isIncome: true)),
-  SidebarItem(id: 'debt', label: 'Incomes', icon: Icons.trending_down_outlined, destination: EntriesTableScreen(isIncome: false)),
+  SidebarItem(id: 'spend', label: 'Spends', icon: Icons.trending_down_outlined, destination: EntriesTableScreen(isIncome: false)),
 ];
 
 const String title = 'Hello Tomer';

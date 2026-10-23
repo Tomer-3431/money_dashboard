@@ -147,8 +147,8 @@ class _EntriesTableScreenState extends State<EntriesTableScreen> {
     final total = visible.fold<int>(0, (s, e) => s + e.amount);
 
     return Scaffold(
-      appBar: AppBar(title: Text(widget.isIncome ? 'Income' : 'Spend')),
-      drawer: Sidebar(activeTabId: widget.isIncome ? 'income' : 'debt',),
+      appBar: AppBar(title: Text(widget.isIncome ? 'Incomes' : 'Spends')),
+      drawer: Sidebar(activeTabId: widget.isIncome ? 'income' : 'spend',),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
