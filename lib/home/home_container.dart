@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:money_dashboard/design/theme_constants.dart';
-import 'package:money_dashboard/entries/entries_table_screen.dart';
-import 'package:money_dashboard/goals/goals_container.dart';
 import 'package:money_dashboard/home/mock_data.dart';
 import 'package:money_dashboard/home/widgets/balance_card.dart';
 import 'package:money_dashboard/home/widgets/entry_form.dart';
 import 'package:money_dashboard/home/widgets/transactions_panel.dart';
+import 'package:money_dashboard/widgets/sidebar.dart';
 
 class HomeContainer extends StatefulWidget {
   const HomeContainer({super.key});
@@ -21,43 +20,14 @@ class HomeContainerState extends State<HomeContainer> {
   /// Fixed width of the forms column in the wide layout.
   static const double _formsWidth = 440;
 
-  void _openGoals() => Navigator.of(context).push(
-        MaterialPageRoute<void>(builder: (_) => const GoalsContainer()),
-      );
-
-  void _openIncomesEntries() => Navigator.of(context).push(
-    MaterialPageRoute(builder: (_) => EntriesTableScreen(isIncome: true, entries: kMockEntries)),
-  );
-
-  void _openDebtEntries() => Navigator.of(context).push(
-    MaterialPageRoute(builder: (_) => EntriesTableScreen(isIncome: false, entries: kMockEntries)),
-  );
-
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('Money Dashboard'),
-          actions: [
-            IconButton(
-              tooltip: 'Goals',
-              icon: const Icon(Icons.flag_outlined),
-              onPressed: _openGoals,
-            ),
-            IconButton(
-              tooltip: 'Income',
-              icon: Icon(Icons.table_chart_outlined, color: context.colors.income),
-              onPressed: _openIncomesEntries,
-            ),
-            IconButton(
-              tooltip: 'Debt',
-              icon: Icon(Icons.table_chart_outlined, color: context.colors.expense),
-              onPressed: _openDebtEntries,
-            ),
-            const SizedBox(width: AppSpacing.sm),
-          ],
         ),
+        drawer: Sidebar(),
         body: SafeArea(
           child: LayoutBuilder(
             builder: (context, constraints) =>

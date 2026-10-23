@@ -6,6 +6,7 @@ import 'package:money_dashboard/goals/widgets/goal_gauge.dart';
 import 'package:money_dashboard/goals/widgets/goals_list.dart';
 import 'package:money_dashboard/home/mock_data.dart';
 import 'package:money_dashboard/model/goal.dart';
+import 'package:money_dashboard/widgets/sidebar.dart';
 
 class GoalsContainer extends StatefulWidget {
   const GoalsContainer({super.key});
@@ -87,6 +88,7 @@ class GoalsContainerState extends State<GoalsContainer> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Money Dashboard')),
+      drawer: Sidebar(),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {

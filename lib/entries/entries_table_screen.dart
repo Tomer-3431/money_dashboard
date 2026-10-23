@@ -7,6 +7,7 @@ import 'package:money_dashboard/home/widgets/transaction_details_dialog.dart';
 import 'package:money_dashboard/home/widgets/type_dot.dart';
 import 'package:money_dashboard/model/entry_type.dart';
 import 'package:money_dashboard/model/ledger_entry.dart';
+import 'package:money_dashboard/widgets/sidebar.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
 
 enum _SortColumn { name, description, location, date, amount }
@@ -146,6 +147,7 @@ class _EntriesTableScreenState extends State<EntriesTableScreen> {
 
     return Scaffold(
       appBar: AppBar(title: Text(widget.isIncome ? 'Income' : 'Spend')),
+      drawer: Sidebar(),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
