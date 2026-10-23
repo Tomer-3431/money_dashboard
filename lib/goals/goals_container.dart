@@ -66,6 +66,9 @@ class GoalsContainerState extends State<GoalsContainer> {
       ..showSnackBar(
         SnackBar(
           content: Text('Deleted "${goal.name}"'),
+          duration: const Duration(milliseconds: 1500),
+          // A snackbar with an action stays until dismissed unless this is false.
+          persist: false,
           action: SnackBarAction(
             label: 'Undo',
             onPressed: () {
