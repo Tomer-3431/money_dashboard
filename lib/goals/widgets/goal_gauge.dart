@@ -64,11 +64,14 @@ class GoalGauge extends StatelessWidget {
                     duration: const Duration(milliseconds: 700),
                     curve: Curves.easeOutCubic,
                     builder: (context, value, _) {
-                      final done = value >= 0.999;
-                      final percent =
-                          done ? 100 : math.min(99, (value * 100).round());
+                      final done = value >= 1;
+                      // Two decimals; never show 100.00% before it is reached.
+                      final percent = done
+                          ? 100.0
+                          : math.min(99.99, (value * 10000).round() / 100);
+                      final percentText = percent.toStringAsFixed(2);
                       return Semantics(
-                        label: 'Goal progress $percent percent',
+                        label: 'Goal progress $percentText percent',
                         child: SizedBox(
                           width: width,
                           height: height,
@@ -90,10 +93,10 @@ class GoalGauge extends StatelessWidget {
                                 child: FittedBox(
                                   fit: BoxFit.scaleDown,
                                   child: Text(
-                                    '$percent%',
+                                    '$percentText%',
                                     style: AppTextStyles.amountLarge.copyWith(
                                       color: c.text,
-                                      fontSize: width * 0.15,
+                                      fontSize: width * 0.13,
                                     ),
                                   ),
                                 ),
