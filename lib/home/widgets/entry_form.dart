@@ -207,8 +207,6 @@ class _TypeSelector extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('Type', style: context.caption),
-          const SizedBox(height: AppSpacing.sm),
           for (var i = 0; i < kTypeCount; i++)
             Padding(
               padding: EdgeInsets.only(bottom: i == kTypeCount - 1 ? 0 : 6),
