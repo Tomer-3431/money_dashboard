@@ -3,6 +3,7 @@ import 'package:money_dashboard/design/theme_constants.dart';
 import 'package:money_dashboard/entries/entries_table_screen.dart';
 import 'package:money_dashboard/goals/goals_container.dart';
 import 'package:money_dashboard/home/home_container.dart';
+import 'package:money_dashboard/investments/investments_container.dart';
 // import 'theme_constants.dart';
 
 class SidebarItem {
@@ -24,6 +25,7 @@ const _sidebarItems = [
   SidebarItem(id: 'goals', label: 'Goals', icon: Icons.flag_outlined, destination: GoalsContainer()),
   SidebarItem(id: 'income', label: 'Incomes', icon: Icons.trending_up_outlined, destination: EntriesTableScreen(isIncome: true)),
   SidebarItem(id: 'spend', label: 'Spends', icon: Icons.trending_down_outlined, destination: EntriesTableScreen(isIncome: false)),
+  SidebarItem(id: 'investments', label: 'Investments', icon: Icons.show_chart_outlined, destination: InvestmentsContainer())
 ];
 
 const String title = 'Hello Tomer';

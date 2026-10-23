@@ -30,3 +30,7 @@ const List<String> _months = [
 ];
 
 String formatMonth(DateTime d) => '${_months[d.month - 1]} ${d.year}';
+
+/// 12.345 -> +12.35%   |   -3.2 -> -3.20%
+String formatPercent(double p) =>
+    '${p >= 0 ? '+' : '-'}${p.abs().toStringAsFixed(2)}%';
