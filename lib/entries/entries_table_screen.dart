@@ -7,6 +7,7 @@ import 'package:money_dashboard/home/widgets/transaction_details_dialog.dart';
 import 'package:money_dashboard/home/widgets/type_dot.dart';
 import 'package:money_dashboard/model/entry_type.dart';
 import 'package:money_dashboard/model/ledger_entry.dart';
+import 'package:month_picker_dialog/month_picker_dialog.dart';
 
 enum _SortColumn { name, description, location, date, amount }
 
@@ -342,11 +343,11 @@ class _MonthHeader extends StatelessWidget {
   final int count;
 
   void _selectMonth(BuildContext context) async {
-    final date = await showDatePicker(
+    final date = await showMonthPicker(
       context: context,
       initialDate: month,
       firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
+      lastDate: DateTime.now(),
     );
     if (date == null) return;
 
