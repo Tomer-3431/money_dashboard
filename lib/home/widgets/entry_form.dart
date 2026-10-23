@@ -213,7 +213,7 @@ class _TypeSelector extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: i == kTypeCount - 1 ? 0 : 6),
               child: _TypeButton(
-                color: typeColor(context, i),
+                color: typeColor(context, i, isIncome),
                 name: typeName(type: i, isIncome: isIncome),
                 selected: i == selected,
                 onTap: () => onChanged(i),

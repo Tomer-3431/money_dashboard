@@ -21,7 +21,7 @@ class TypeDot extends StatelessWidget {
           width: size,
           height: size,
           decoration: BoxDecoration(
-            color: typeColor(context, type),
+            color: typeColor(context, type, isIncome),
             shape: BoxShape.circle,
           ),
         ),
