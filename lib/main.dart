@@ -12,7 +12,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ValueListenableBuilder<ThemeMode>(
     valueListenable: appThemeMode,
-    builder: (_, mode, __) => MaterialApp(
+    builder: (_, mode, _) => MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Finance Dashboard',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,

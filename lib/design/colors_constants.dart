@@ -1,0 +1,23 @@
+import 'dart:ui';
+
+final Color red = const Color(0xFFEF4444);
+final Color orange = const Color(0xFFF97316);
+final Color yellow = const Color(0xFFEAB308);
+final Color green = const Color(0xFF22C55E);
+final Color teal = const Color(0xFF14B8A6);
+final Color cyan = const Color(0xFF06B6D4);
+final Color blue = const Color(0xFF3B82F6);
+final Color indigo = const Color(0xFF6366F1);
+final Color purple = const Color(0xFFA855F7);
+final Color pink = const Color(0xFFEC4899);
+final Color brown = const Color(0xFF92400E);
+final Color gray = const Color(0xFF6B7280);
+final Color black = const Color(0xFF111827);
+final Color white = const Color(0xFFFFFFFF);
+final Color gold = const Color(0xFFD4AF37);
+final Color navy = const Color(0xFF1E3A8A);
+final Color lime = const Color(0xFF84CC16);
+final Color maroon = const Color(0xFF9F1239);
+final Color coral = const Color(0xFFFB7185);
+final Color silver = const Color(0xFFCBD5E1);
+final Color beige = const Color(0xFFE7DCC8);
