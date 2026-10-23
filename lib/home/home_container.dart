@@ -25,7 +25,7 @@ class HomeContainerState extends State<HomeContainer> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Money Dashboard'),
+          title: const Text('Main Dashboard'),
         ),
         drawer: Sidebar(activeTabId: 'home',),
         body: SafeArea(

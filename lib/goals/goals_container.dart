@@ -87,7 +87,7 @@ class GoalsContainerState extends State<GoalsContainer> {
     final selected = _selected;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Money Dashboard')),
+      appBar: AppBar(title: const Text('Goals')),
       drawer: Sidebar(activeTabId: 'goals',),
       body: SafeArea(
         child: LayoutBuilder(
