@@ -10,8 +10,8 @@ const List<(String, Color)> kSpendTypes = [
   ('Medical / Mendatory', red),
   ('Food', orange),
   ('Cheap', yellow),
-  ('Transportation', green),
-  ('Subscription', lime),
+  ('Transportation', lime),
+  ('Subscription', green),
   ('Other', teal),
 ];
 
