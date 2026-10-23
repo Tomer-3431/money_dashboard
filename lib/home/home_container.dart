@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:money_dashboard/design/theme_constants.dart';
+import 'package:money_dashboard/entries/entries_table_screen.dart';
 import 'package:money_dashboard/goals/goals_container.dart';
 import 'package:money_dashboard/home/mock_data.dart';
 import 'package:money_dashboard/home/widgets/balance_card.dart';
@@ -24,8 +25,18 @@ class HomeContainerState extends State<HomeContainer> {
         MaterialPageRoute<void>(builder: (_) => const GoalsContainer()),
       );
 
+  void _openIncomesEntries() => Navigator.of(context).push(
+    MaterialPageRoute(builder: (_) => EntriesTableScreen(isIncome: true, entries: kMockEntries)),
+  );
+
+  void _openDebtEntries() => Navigator.of(context).push(
+    MaterialPageRoute(builder: (_) => EntriesTableScreen(isIncome: false, entries: kMockEntries)),
+  );
+
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) {
+
+    return Scaffold(
         appBar: AppBar(
           title: const Text('Money Dashboard'),
           actions: [
@@ -33,6 +44,16 @@ class HomeContainerState extends State<HomeContainer> {
               tooltip: 'Goals',
               icon: const Icon(Icons.flag_outlined),
               onPressed: _openGoals,
+            ),
+            IconButton(
+              tooltip: 'Income',
+              icon: Icon(Icons.table_chart_outlined, color: context.colors.income),
+              onPressed: _openIncomesEntries,
+            ),
+            IconButton(
+              tooltip: 'Debt',
+              icon: Icon(Icons.table_chart_outlined, color: context.colors.expense),
+              onPressed: _openDebtEntries,
             ),
             const SizedBox(width: AppSpacing.sm),
           ],
@@ -46,6 +67,7 @@ class HomeContainerState extends State<HomeContainer> {
           ),
         ),
       );
+  }
 
   // Windows / tablet: balance + list on the left, forms on the right.
   Widget _buildWide() => Padding(
